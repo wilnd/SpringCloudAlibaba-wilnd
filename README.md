@@ -1,4 +1,4 @@
-在之前的文章中，搭建了一个基于spring cloud alibaba的基础框架组件
+在之前的文章中，搭建了一个基于spring cloud alibaba的基础框架组件 详情见：https://blog.ch-home.fun:4443/
 
 - nacos 安装
 - 基于nacos 生产、消费模型
