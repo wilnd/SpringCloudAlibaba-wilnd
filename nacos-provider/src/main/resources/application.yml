@@ -4,9 +4,45 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 192.168.31.12:8848
+
       config:
-        enabled: false
+        enabled: true
+    stream:
+      #RocketMQ 通用配置
+      rocketmq:
+        binder:
+          #客户端接入点，必填  rocketMQ的连接地址，binder高度抽象
+          name-server: 192.168.31.12:9876
+          # 不加, 会报错：Property 'group' is required - producerGroup
+          group: rocketmq-group
+        bindings:
+          input2: # 与 spring.cloud.stream.bindings.input2对应上
+            consumer:
+              subscription: myTag||look # 基于 Tag 订阅，多个 Tag 使用 || 分隔，默认为空
+      #bindings 具体生产消息、消费消息的桥梁
+      bindings:
+        # producer config
+        output1:
+          destination: test-topic1
+          contentType: text/plain
+          group: test-group1
+        output2:
+          destination: test-topic2
+          contentType: text/plain
+          group: test-group2
+        # consumer config
+        input1:
+          destination: test-topic1
+          contentType: text/plain
+          group: test-group1
+          consumer:
+            maxAttempts: 1 #默认是3,1表示不重试
+
+        input2:
+          destination: test-topic2
+          contentType: text/plain
+          group: test-group2
 
 server:
   port: 8081
@@ -17,3 +53,8 @@ management:
       exposure:
         include: "*"
 
+# 日志级别
+logging:
+  level:
+    com.alibaba.cloud.stream.binder.rocketmq: info
+    com.alibaba.nacos.client.naming: DEBUG
