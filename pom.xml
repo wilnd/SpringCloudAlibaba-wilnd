@@ -15,6 +15,10 @@
         <module>spring-cloud-feign</module>
         <module>spring-cloud-gateway</module>
         <module>spring-boot-mybatisplus</module>
+        <module>seata-order-service</module>
+        <module>seata-storage-service</module>
+        <module>seata-account-service</module>
+        <module>common-web</module>
     </modules>
 
     <properties>
@@ -103,6 +107,7 @@
                 <artifactId>lombok</artifactId>
                 <version>1.18.20</version>
             </dependency>
+
 
         </dependencies>
     </dependencyManagement>
