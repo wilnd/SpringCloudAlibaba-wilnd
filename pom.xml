@@ -14,6 +14,7 @@
         <module>nacos-consumer</module>
         <module>spring-cloud-feign</module>
         <module>spring-cloud-gateway</module>
+        <module>spring-boot-mybatisplus</module>
     </modules>
 
     <properties>
@@ -25,6 +26,10 @@
         <spring.cloud.alibaba>2.2.9.RELEASE</spring.cloud.alibaba>
         <!-- Spring Cloud 版本 -->
         <spring.cloud>Hoxton.SR12</spring.cloud>
+        <!-- Mysql版本 -->
+        <mysql.version>8.0.28</mysql.version>
+        <!-- mybatis.plus -->
+        <mybatis.plus>3.2.0</mybatis.plus>
     </properties>
 
     <dependencies>
@@ -69,13 +74,36 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <!--            hutool工具包-->
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--mybatis.plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis.plus}</version>
+            </dependency>
+            <!--hutool工具包-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>5.8.16</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.20</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
