@@ -5,6 +5,7 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql.ch-home.fun:12010/seata-account?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
@@ -19,4 +20,25 @@ spring:
 server:
   port: 8082
 
-
+seata:
+  enabled: true
+  enable-auto-data-source-proxy: true
+  application-id: ${spring.application.name}
+  tx-service-group: ch-study-seata-account-group
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      namespace:
+      cluster: default
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      namespace:
+      group: SEATA_GROUP

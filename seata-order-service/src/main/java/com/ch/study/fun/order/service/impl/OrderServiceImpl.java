@@ -6,6 +6,7 @@ import com.ch.study.fun.order.dao.OrderDao;
 import com.ch.study.fun.order.service.AccountService;
 import com.ch.study.fun.order.service.OrderService;
 import com.ch.study.fun.order.service.StorageService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
      * 创建订单->调用库存服务扣减库存->调用账户服务扣减账户余额->修改订单状态
      */
 
-//    @GlobalTransactional(name = "scorpios-create-order",rollbackFor = Exception.class)
+    @GlobalTransactional(name = "ch-create-order",rollbackFor = Exception.class)
     @Override
     public void create(Order order){
         log.info("----->开始新建订单");

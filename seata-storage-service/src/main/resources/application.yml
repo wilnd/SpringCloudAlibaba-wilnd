@@ -19,4 +19,25 @@ spring:
 server:
   port: 8084
 
-
+seata:
+  enabled: true
+  enable-auto-data-source-proxy: true
+  application-id: seata-storage-service
+  tx-service-group: ch-study-seata-storage-group
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      namespace:
+      cluster: default
+      group: SEATA_GROUP
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      namespace:
+      group: SEATA_GROUP
