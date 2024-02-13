@@ -2,12 +2,9 @@ package com.ch.study.leecode;
 
 /**
  * 1. 从后往前找到第一个升序的位置i
- * 2. 从i开始往后找到第一个比i大的位置j
- * 3. 交换i和j的位置
+ * 2. 从i开始往后找到第一个比i大的位置k
+ * 3. 交换i和k的位置
  * 4. 反转i后面的所有元素
- * 5. 如果没有找到i，说明是最大的排列，直接反转整个数组
- * 6. 如果找到了i，但是没有找到j，说明是最大的排列，直接反转i后面的所有元素
- * 7. 如果找到了i和j，交换i和j的位置，然后反转i后面的所有元素
  */
 public class NextPermutation {
     public void nextPermutation(int[] nums) {
@@ -29,6 +26,7 @@ public class NextPermutation {
         }
 
         //reverse a[i+1] to a[n]
+        //i 最小为-1 为-1时表示整个数组是降序的，直接反转整个数组
         reverse(nums, i + 1, nums.length - 1);
     }
 
