@@ -5,6 +5,29 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+        username: nacos #nacos的账号
+        password: nacos #nacos的密码
+        namespace: ${spring.cloud.nacos.config.namespace}
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: 63264b8c-1698-468f-8191-5a1827a3a230
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8090 #sentinel控制台ip:端口号
+        port: 8720 #sentinel客户端与控制台通讯端口,当被占用时会向上兼容,使用8720端口
+      eager: true #启动是否自动注册,如果为false,只有当该微服务有请求时才会注册到sentinel控制台
+      datasource:
+        ds1: #这个随便填即可,不要和下面的命名冲突就行
+          nacos: #使用nacos为数据源
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}  #nacos的ip:端口号
+            namespace: ${spring.cloud.nacos.config.namespace}
+            dataId: common-sentinel-rules.json #nacos中流控配置文件的data_id
+            groupId: DEFAULT_GROUP #nacos中流控配置文件的分组,我们这里为了方便管理配置文件,我们将所有配置文件都放到SENTINTL分组下
+            data-type: json
+            rule-type: flow #规则模式 flow-流控 degrade-降级 system-系统 param-flow-热点规则 authority-授权
+            username: ${spring.cloud.nacos.discovery.username} #nacos的账号
+            password: ${spring.cloud.nacos.discovery.password} #nacos的密码
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql.ch-home.fun:12010/db1?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
@@ -15,6 +38,8 @@ spring:
     time-zone: GMT+8
     serialization:
       write-dates-as-timestamps: false
+
+
 
 server:
   port: 8081
