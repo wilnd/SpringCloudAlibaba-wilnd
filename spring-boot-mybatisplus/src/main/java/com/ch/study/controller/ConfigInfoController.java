@@ -35,7 +35,7 @@ public class ConfigInfoController {
 
     @PostMapping("/getConfigInfo")
     @ResponseBody
-//    @SentinelResource(value = "common-resource", blockHandler = "getConfigInfoBlock", fallback = "getConfigInfoFallback")
+    @SentinelResource(value = "common-resource", blockHandler = "getConfigInfoBlock", fallback = "getConfigInfoFallback")
     public CommonResponse getConfigInfo() {
         log.info("getConfigInfo success");
         return ResponseUtil.success(configInfoService.getById(1));
@@ -48,6 +48,14 @@ public class ConfigInfoController {
         log.info("findAllConfig success");
         return ResponseUtil.success(configInfoService.findAllConfig());
     }
+
+    @PostMapping("/getConfigInfo2")
+    @ResponseBody
+    public CommonResponse getConfigInfo2() {
+        log.info("getConfigInfo2 success");
+        return ResponseUtil.success(configInfoService.getById(1));
+    }
+
 
     public CommonResponse findAllConfigBlock() {
         log.info("==findAllConfigBlock execute==");
