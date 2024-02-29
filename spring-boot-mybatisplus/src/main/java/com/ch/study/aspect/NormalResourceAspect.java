@@ -6,6 +6,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.degrade.DegradeException;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowException;
+import com.alibaba.fastjson.JSON;
 import com.ch.study.common.CommonResponse;
 import com.ch.study.common.CommonSession;
 import com.ch.study.common.ResponseUtil;
@@ -60,17 +61,23 @@ public class NormalResourceAspect {
      */
     private ResponseEntity<CommonResponse> handleBlockException(BlockException ex) {
         if (ex instanceof FlowException) {
-            log.warn("Blocked by Sentinel (flow)", ex);
+            log.warn("Blocked by Sentinel (flow) rule = {}", JSON.toJSONString(ex.getRule()));
+            log.warn("Blocked by Sentinel (flow) cause = {}", JSON.toJSONString(ex.getCause()));
+            log.warn("Blocked by Sentinel (flow) message = {}", JSON.toJSONString(ex.getMessage()));
             buildThreadLocal(FLOW_ERROR);
             // 处理流量控制异常
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(ResponseUtil.success(FLOW_ERROR));
         } else if (ex instanceof DegradeException) {
-            log.info("Blocked by Sentinel (degrade)", ex);
+            log.warn("Blocked by Sentinel (degrade) rule = {}", JSON.toJSONString(ex.getRule()));
+            log.warn("Blocked by Sentinel (degrade) cause = {}", JSON.toJSONString(ex.getCause()));
+            log.warn("Blocked by Sentinel (degrade) message = {}", JSON.toJSONString(ex.getMessage()));
             buildThreadLocal(DEGRADE_ERROR);
             return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(ResponseUtil.success(DEGRADE_ERROR));
         } else {
             // 其他限流异常
-            log.info("Blocked by Sentinel (other)", ex);
+            log.warn("Blocked by Sentinel (other) rule = {}", JSON.toJSONString(ex.getRule()));
+            log.warn("Blocked by Sentinel (other) cause = {}", JSON.toJSONString(ex.getCause()));
+            log.warn("Blocked by Sentinel (other) message = {}", JSON.toJSONString(ex.getMessage()));
             buildThreadLocal(OTHER_ERROR);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseUtil.success(OTHER_ERROR));
         }

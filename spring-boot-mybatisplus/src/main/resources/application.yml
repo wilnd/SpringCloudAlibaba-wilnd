@@ -27,7 +27,7 @@ spring:
           nacos: #使用nacos为数据源
             server-addr: ${spring.cloud.nacos.discovery.server-addr}  #nacos的ip:端口号
             namespace: ${spring.cloud.nacos.discovery.namespace}
-            dataId: common-sentinel-rules.json #nacos中流控配置文件的data_id
+            dataId: ${spring.application.name}-flow-rules #nacos中流控配置文件的data_id
             groupId: DEFAULT_GROUP #nacos中流控配置文件的分组,我们这里为了方便管理配置文件,我们将所有配置文件都放到SENTINTL分组下
             data-type: json
             rule-type: flow #规则模式 flow-流控 degrade-降级 system-系统 param-flow-热点规则 authority-授权
