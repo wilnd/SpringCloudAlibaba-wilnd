@@ -1,6 +1,9 @@
+server:
+  port: 8091
+
 spring:
   application:
-    name: nacos-consumer
+    name: spring-boot-mybatis-application
   cloud:
     nacos:
       discovery:
@@ -31,6 +34,9 @@ spring:
             username: nacos #nacos的账号
             password: nacos #nacos的密码
 
+  profiles:
+    active: dev
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql.ch-home.fun:12010/db1?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
@@ -42,7 +48,16 @@ spring:
     serialization:
       write-dates-as-timestamps: false
 
-
-
-server:
-  port: 8091
+mybatis-plus:
+  global-config:
+    db-config:
+      field-strategy: not_empty
+      column-underline: true
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
