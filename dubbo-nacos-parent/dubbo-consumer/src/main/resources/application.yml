@@ -1,0 +1,17 @@
+server:
+  port: 9020
+
+spring:
+  application:
+    name: dubbo-consumer
+
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848 #注册地址
+    parameters:
+      namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
+    group: dubbo-group
+  application:
+    name: dubbo-consumer #应用名
+  consumer:
+    timeout: 30000 #超时时间

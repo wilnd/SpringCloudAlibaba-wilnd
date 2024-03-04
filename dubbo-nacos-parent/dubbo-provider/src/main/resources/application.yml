@@ -1,0 +1,22 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: dubbo-provider
+
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848
+    parameters:
+      namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
+    group: dubbo-group
+  application:
+    name: dubbo-provider
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.ch.study.dubboprovider.impl
+  provider:
+    timeout: 30000

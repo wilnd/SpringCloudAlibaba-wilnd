@@ -8,6 +8,7 @@
     <artifactId>spring-cloud-alibaba</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>nacos-discover</module>
         <module>nacos-provider</module>
@@ -19,6 +20,7 @@
         <module>seata-storage-service</module>
         <module>seata-account-service</module>
         <module>common-web</module>
+        <module>dubbo-nacos-parent</module>
     </modules>
 
     <properties>
@@ -61,6 +63,12 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
             <!-- Spring Cloud Alibaba 版本管理器 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -77,6 +85,11 @@
                 <version>${spring.cloud}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
             </dependency>
             <!--mysql-->
             <dependency>
