@@ -10,12 +10,23 @@ dubbo:
     address: nacos://127.0.0.1:8848
     parameters:
       namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
-    group: dubbo-group
+    group: dubbo
+  metadata-report:
+    address: nacos://localhost:8848
+    group: dubbo
+    parameters:
+      namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
+  config-center:
+    address: 127.0.0.1
+    port: 8848
+    protocol: nacos
+    group: dubbo
+    namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
   application:
     name: dubbo-provider
   protocol:
     name: dubbo
-    port: 20880
+    port: 29012
   scan:
     base-packages: com.ch.study.dubboprovider.impl
   provider:
