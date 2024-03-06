@@ -4,24 +4,30 @@ server:
 spring:
   application:
     name: dubbo-provider
-
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.159:8848
+        username: nacos #nacos的账号
+        password: nacos #nacos的密码
+        namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
 dubbo:
   registry:
-    address: nacos://127.0.0.1:8848
+    address: nacos://192.168.31.159:8848
     parameters:
-      namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
+      namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
     group: dubbo
   metadata-report:
-    address: nacos://localhost:8848
+    address: nacos://192.168.31.159:8848
     group: dubbo
     parameters:
-      namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
+      namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
   config-center:
-    address: 127.0.0.1
+    address: 192.168.31.159
     port: 8848
     protocol: nacos
     group: dubbo
-    namespace: f1ba62a7-9066-4b42-8a95-3c530477d7da
+    namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
   application:
     name: dubbo-provider
   protocol:

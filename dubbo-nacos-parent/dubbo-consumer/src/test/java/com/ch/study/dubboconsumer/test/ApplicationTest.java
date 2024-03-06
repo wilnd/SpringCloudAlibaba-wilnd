@@ -1,26 +1,26 @@
-package com.ch.study.dubboconsumer.test;
-
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest
-//ÓÉÓÚÊÇWebÏîÄ¿£¬JunitÐèÒªÄ£ÄâServletContext£¬Òò´ËÎÒÃÇÐèÒª¸øÎÒÃÇµÄ²âÊÔÀà¼ÓÉÏ@WebAppConfiguration¡£
-@WebAppConfiguration
-public class ApplicationTest {
-
-    @Before
-    public void init() {
-        System.out.println("¿ªÊ¼²âÊÔ-----------------");
-    }
-
-    @After
-    public void after() {
-        System.out.println("²âÊÔ½áÊø-----------------");
-    }
-}
+//package com.ch.study.dubboconsumer.test;
+//
+//
+//import org.junit.After;
+//import org.junit.Before;
+//import org.junit.runner.RunWith;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.test.context.web.WebAppConfiguration;
+//
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Webï¿½ï¿½Ä¿ï¿½ï¿½Junitï¿½ï¿½ÒªÄ£ï¿½ï¿½ServletContextï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ÇµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@WebAppConfigurationï¿½ï¿½
+//@WebAppConfiguration
+//public class ApplicationTest {
+//
+//    @Before
+//    public void init() {
+//        System.out.println("ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½-----------------");
+//    }
+//
+//    @After
+//    public void after() {
+//        System.out.println("ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½-----------------");
+//    }
+//}
