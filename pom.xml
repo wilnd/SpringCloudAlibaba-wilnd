@@ -21,6 +21,11 @@
 <!--        <module>seata-account-service</module>-->
         <module>common-web</module>
         <module>dubbo-nacos-parent</module>
+        <module>dubbo-nacos-seata-parent</module>
+        <module>dubbo-nacos-seata-parent/dubbo-seata-account</module>
+        <module>dubbo-nacos-seata-parent/dubbo-seata-order</module>
+        <module>dubbo-nacos-seata-parent/dubbo-seata-storage</module>
+        <module>dubbo-nacos-seata-parent/dubbo-seata-api</module>
     </modules>
 
     <properties>
