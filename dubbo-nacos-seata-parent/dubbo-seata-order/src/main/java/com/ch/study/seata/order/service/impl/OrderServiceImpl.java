@@ -8,21 +8,25 @@ import com.ch.study.seataapi.service.order.OrderService;
 import com.ch.study.seataapi.service.storage.StorageService;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
+import org.apache.dubbo.common.constants.LoadbalanceRules;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.DubboService;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-@Service
+@Component
+@DubboService(version = "1.0.0", loadbalance = LoadbalanceRules.LEAST_ACTIVE)
 @Slf4j
 public class OrderServiceImpl implements OrderService {
 
     @Resource
     private OrderDao orderDao;
 
-    @Resource
+    @DubboReference(version = "1.0.0", loadbalance = LoadbalanceRules.LEAST_ACTIVE)
     private StorageService storageService;
 
-    @Resource
+    @DubboReference(version = "1.0.0", loadbalance = LoadbalanceRules.LEAST_ACTIVE)
     private AccountService accountService;
 
 

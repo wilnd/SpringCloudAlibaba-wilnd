@@ -1,16 +1,16 @@
 package com.ch.study.seata.account;
 
 import io.seata.spring.annotation.datasource.EnableAutoDataSourceProxy;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@MapperScan({"com.ch.study.account.dao"})
+@MapperScan({"com.ch.study.seata.account.dao.AccountDao"})
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.ch.study")
+@EnableDubbo
 @EnableAutoDataSourceProxy
 public class SeataAccountServiceApplication {
     public static void main(String[] args) {

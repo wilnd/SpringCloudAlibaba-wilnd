@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/seata-account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-mybatisplus/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
