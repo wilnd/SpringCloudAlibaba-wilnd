@@ -1,0 +1,74 @@
+server:
+  port: 9011
+
+spring:
+  application:
+    name: dubbo-seata-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.159:8848
+        username: nacos #nacos的账号
+        password: nacos #nacos的密码
+        namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.31.159:3306/seata-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123321
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+dubbo:
+  registry:
+    address: nacos://192.168.31.159:8848
+    parameters:
+      namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
+    group: dubbo
+  metadata-report:
+    address: nacos://192.168.31.159:8848
+    group: dubbo
+    parameters:
+      namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
+  config-center:
+    address: 192.168.31.159
+    port: 8848
+    protocol: nacos
+    group: dubbo
+    namespace: 302d4c8d-f9e7-4e10-a013-f378038057b2
+  application:
+    name: dubbo-provider
+  protocol:
+    name: dubbo
+    port: 29012
+  scan:
+    base-packages: com.ch.study.dubboprovider.impl
+  provider:
+    timeout: 30000
+
+
+seata:
+  enabled: true
+  enable-auto-data-source-proxy: true
+  application-id: dubbo-seata-order
+  tx-service-group: ch-study-seata-order-group
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.31.159:8848
+      username: nacos
+      password: nacos
+      namespace:
+      cluster: default
+      group: dubbo_seata_group
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.31.159:8848
+      username: nacos
+      password: nacos
+      namespace:
+      group: dubbo_seata_group
