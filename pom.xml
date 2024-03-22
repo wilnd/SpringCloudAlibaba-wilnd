@@ -26,6 +26,7 @@
         <module>dubbo-nacos-seata-parent/dubbo-seata-order</module>
         <module>dubbo-nacos-seata-parent/dubbo-seata-storage</module>
         <module>dubbo-nacos-seata-parent/dubbo-seata-api</module>
+        <module>architecture</module>
     </modules>
 
     <properties>

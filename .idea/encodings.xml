@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/architecture/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/architecture/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dubbo-common/src/main/java" charset="UTF-8" />
@@ -22,6 +24,7 @@
     <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/dubbo-seata-order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/dubbo-seata-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/dubbo-seata-storage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/dubbo-seata-storage/src/main/java/com/ch/study/seata/storage/AESUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/dubbo-seata-storage/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dubbo-nacos-seata-parent/src/main/resources" charset="UTF-8" />
