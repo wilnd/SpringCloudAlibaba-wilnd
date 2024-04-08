@@ -37,3 +37,15 @@ dubbo:
     base-packages: com.ch.study.dubboprovider.impl
   provider:
     timeout: 30000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        #开放页面中的所有端口(endpoint)
+        include: '*'
+      #访问的页面 ip+port/monitor  默认是/actuator
+      base-path: /monitor
+  server:
+    #监听端口
+    port: 7000
